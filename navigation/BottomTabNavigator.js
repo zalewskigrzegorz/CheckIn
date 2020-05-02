@@ -1,48 +1,38 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import * as React from 'react';
+import { BottomNavigation } from 'react-native-paper';
+import Colors from "../constants/Colors";
+import AllRoute from "../screens/AllRoute";
+import NearRoute from "../screens/NearRoute";
+import SettingsRoute from "../screens/SettingsRoute";
 
-import TabBarIcon from '../components/TabBarIcon';
-import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
 
-const BottomTab = createBottomTabNavigator();
-const INITIAL_ROUTE_NAME = 'Home';
 
-export default function BottomTabNavigator({ navigation, route }) {
-  // Set the header title on the parent stack navigator depending on the
-  // currently active tab. Learn more in the documentation:
-  // https://reactnavigation.org/docs/en/screen-options-resolution.html
-  navigation.setOptions({ headerTitle: getHeaderTitle(route) });
+export default class BottomTabNavigator extends React.Component {
+  state = {
+    index: 0,
+    routes: [
+      { key: 'near', title: 'Near', icon: 'access-point', color:Colors.NearScreen.primaryColor, badge: 1},
+      { key: 'all', title: 'All', icon: 'map' ,color:Colors.AllScreen.primaryColor },
+      { key: 'settings', title: 'Settings', icon: 'settings', color:Colors.SettingsScreen.primaryColor, badge:true}
+    ],
+  };
 
-  return (
-    <BottomTab.Navigator initialRouteName={INITIAL_ROUTE_NAME}>
-      <BottomTab.Screen
-        name="Home"
-        component={HomeScreen}
-        options={{
-          title: 'Get Started',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-code-working" />,
-        }}
+  _handleIndexChange = index => this.setState({ index });
+
+  _renderScene = BottomNavigation.SceneMap({
+    near: ()=> <NearRoute/>,
+    all: ()=> <AllRoute />,
+    settings: ()=> <SettingsRoute />,
+  });
+
+  render() {
+    return (
+      <BottomNavigation
+        shifting={true}
+        navigationState={this.state}
+        onIndexChange={this._handleIndexChange}
+        renderScene={this._renderScene}
       />
-      <BottomTab.Screen
-        name="Links"
-        component={LinksScreen}
-        options={{
-          title: 'Resources',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-book" />,
-        }}
-      />
-    </BottomTab.Navigator>
-  );
-}
-
-function getHeaderTitle(route) {
-  const routeName = route.state?.routes[route.state.index]?.name ?? INITIAL_ROUTE_NAME;
-
-  switch (routeName) {
-    case 'Home':
-      return 'How to get started';
-    case 'Links':
-      return 'Links to learn more';
+    );
   }
 }

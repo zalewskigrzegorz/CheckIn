@@ -1,14 +1,16 @@
-const tintColor = '#2f95dc';
 
+import {Colors } from 'react-native-paper';
 export default {
-  tintColor,
-  tabIconDefault: '#ccc',
-  tabIconSelected: tintColor,
-  tabBar: '#fefefe',
-  errorBackground: 'red',
-  errorText: '#fff',
-  warningBackground: '#EAEB5E',
-  warningText: '#666804',
-  noticeBackground: tintColor,
-  noticeText: '#fff',
+  NearScreen:{
+    primaryColor:Colors.blue500,
+    secondaryColor:Colors.blue900,
+  },
+  AllScreen:{
+    primaryColor:Colors.green500,
+    secondaryColor:Colors.blue900,
+  },
+  SettingsScreen:{
+    primaryColor:Colors.purple500,
+    secondaryColor:Colors.purple900,
+  },
 };
