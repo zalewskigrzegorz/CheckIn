@@ -4,7 +4,7 @@
     "android": "expo start --android",
     "eject": "expo eject",
     "ios": "expo start --ios",
-    "prettier:fix": "prettier --write --check \"**/*.js?(x)\"",
+    "prettier:fix": "prettier-standard --lint '**/*.{js,jsx}'",
     "start": "expo start",
     "standard:fix": "standard --fix",
     "test": "jest --watchAll",
@@ -40,11 +40,14 @@
     "@babel/core": "^7.8.6",
     "babel-preset-expo": "~8.1.0",
     "jest-expo": "~37.0.0",
-    "prettier": "2.0.5",
+    "prettier-standard": "^16.3.0",
     "standard": "^14.3.3"
   },
   "private": true,
   "standard": {
-    "env": [ "mocha", "jest" ]
+    "env": [
+      "mocha",
+      "jest"
+    ]
   }
 }

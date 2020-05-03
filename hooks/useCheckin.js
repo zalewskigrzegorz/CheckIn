@@ -1,12 +1,11 @@
-import { useState } from 'react';
+import { useState } from 'react'
 
-export const useCheckin = (initialState) => {
-
-  const [isLoading, setLoading] = useState(false);
-  const [isRegistered, setRegister] = useState(false);
-  const [nearList, updateLocation] = useState(initialState.nearList);
-  const [email, updateEmail] =useState(initialState.email);
-  const [password, updatePassword] =useState(initialState.password);
+export const useCheckin = initialState => {
+  const [isLoading, setLoading] = useState(false)
+  const [isRegistered, setRegister] = useState(false)
+  const [nearList, updateLocation] = useState(initialState.nearList)
+  const [email, updateEmail] = useState(initialState.email)
+  const [password, updatePassword] = useState(initialState.password)
   const currentState = initialState.currentState
   const checkIn = initialState.checkIn
   const checkOut = initialState.checkOut
@@ -28,6 +27,6 @@ export const useCheckin = (initialState) => {
     checkIn,
     checkOut,
     updateLocation,
-    setLoading,
-  };
+    setLoading
+  }
 }
