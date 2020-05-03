@@ -5,6 +5,7 @@ import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
 
 import BottomNavigator from './navigation/BottomTabNavigator';
+import {Colors} from "react-native-paper";
 
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = React.useState(false);
@@ -47,6 +48,6 @@ export default function App(props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: Colors.amber50,
   },
 });
