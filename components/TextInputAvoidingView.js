@@ -1,13 +1,8 @@
-import * as React from 'react';
-import {
-  KeyboardAvoidingView,
-  Platform,
-  StyleSheet,
-} from 'react-native';
-
+import * as React from "react";
+import { KeyboardAvoidingView, Platform, StyleSheet } from "react-native";
 
 const TextInputAvoidingView = ({ children }) => {
-  return Platform.OS === 'ios' ? (
+  return Platform.OS === "ios" ? (
     <KeyboardAvoidingView
       style={styles.wrapper}
       behavior="padding"
@@ -23,7 +18,7 @@ const TextInputAvoidingView = ({ children }) => {
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-  }
+  },
 });
 
-export default TextInputAvoidingView
+export default TextInputAvoidingView;
