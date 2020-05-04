@@ -1,13 +1,18 @@
 {
   "expo": {
-    "name": "CheckIn",
+    "sdkVersion": "37.0.0",
     "slug": "CheckIn",
+    "name": "CheckIn GO",
+    "description": "App for check in",
+    "android": {
+      "package": "com.zinsoft.almcheckin"
+    },
     "platforms": [
       "ios",
       "android",
       "web"
     ],
-    "version": "1.0.0",
+    "version": "0.0.1",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",

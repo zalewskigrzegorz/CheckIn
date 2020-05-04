@@ -4,10 +4,12 @@ import { SplashScreen } from 'expo'
 import * as Font from 'expo-font'
 import { Ionicons } from '@expo/vector-icons'
 
-import BottomNavigator from './navigation/BottomTabNavigator'
+import BottomTabNavigator from './navigation/BottomTabNavigator'
 import { Provider as PaperProvider, Colors } from 'react-native-paper'
 
-import { ContextProvider } from './context/CheckInContext'
+import { StateProvider } from './context/StateContext'
+import initialState from './context/initialState'
+import reducer from './reducers/reducer'
 
 export default function App (props) {
   const [isLoadingComplete, setLoadingComplete] = React.useState(false)
@@ -38,14 +40,14 @@ export default function App (props) {
     return null
   } else {
     return (
-      // <ContextProvider >
-      <PaperProvider>
-        <View style={styles.container}>
-          {Platform.OS === 'ios' && <StatusBar barStyle='default' />}
-          <BottomNavigator />
-        </View>
-      </PaperProvider>
-      // </ContextProvider>
+      <StateProvider initialState={initialState} reducer={reducer}>
+        <PaperProvider>
+          <View style={styles.container}>
+            {Platform.OS === 'ios' && <StatusBar barStyle='default' />}
+            <BottomTabNavigator />
+          </View>
+        </PaperProvider>
+      </StateProvider>
     )
   }
 }

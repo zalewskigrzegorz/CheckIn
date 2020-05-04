@@ -1,15 +1,22 @@
 import React from 'react'
-import { Alert, ScrollView, StyleSheet, View, Text } from 'react-native'
+import { ScrollView, StyleSheet, View, Text } from 'react-native'
 import { Appbar, Button, HelperText, TextInput } from 'react-native-paper'
 import { useForm, Controller } from 'react-hook-form'
+import { useStateValue } from '../context/StateContext'
 
 import Colors from '../constants/Colors'
 import Regex from '../constants/Regex'
 import TextInputAvoidingView from '../components/TextInputAvoidingView'
 
 export default function SettingsRoute () {
+  const [{ email }, dispatch] = useStateValue()
   const { control, handleSubmit, errors } = useForm()
-  const onSubmit = data => Alert.alert('Form Data', JSON.stringify(data))
+  const onSubmit = data =>
+    dispatch({
+      type: 'register',
+      newEmail: data.email,
+      newPassword: data.password
+    })
 
   return (
     <View>
@@ -27,6 +34,7 @@ export default function SettingsRoute () {
               as={<TextInput />}
               control={control}
               name='email'
+              value={email}
               onChange={args => args[0].nativeEvent.text}
               defaultValue=''
               label='Email'
