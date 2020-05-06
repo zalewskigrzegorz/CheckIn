@@ -3,20 +3,10 @@ import React from 'react'
 import { StyleSheet, View, ScrollView } from 'react-native'
 import Colors from '../constants/Colors'
 import CheckPoint from '../components/CheckPoint'
+import { useStateValue } from '../context/StateContext'
 
 export default function NearRoute () {
-  const list = [
-    {
-      id: '4f7fcbef-649b-4126-b79f-86c45b677d45',
-      name: 'Home Office',
-      image: 'home.png'
-    },
-    {
-      id: 'c44cba64-4b9d-4d9b-bad5-4bb8030c0940',
-      name: 'ALM Gliwice',
-      image: 'gliwice.png'
-    }
-  ]
+  const [{ nearList }, dispatch] = useStateValue()
 
   return (
     <View>
@@ -28,7 +18,7 @@ export default function NearRoute () {
         keyboardShouldPersistTaps='always'
         removeClippedSubviews={false}
       >
-        {list.map(value => {
+        {nearList.map(value => {
           return (
             <CheckPoint
               key={value.id}
