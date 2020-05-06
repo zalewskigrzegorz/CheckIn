@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Avatar, Card, IconButton } from 'react-native-paper'
-
+import { useStateValue } from '../context/StateContext'
 export default function CheckPoint (prop) {
-  const [snackBarVisible, setSnackBarVisibility] = useState(false)
+  const [dispatch] = useStateValue()
+
   const assets = {
     'gliwice.png': require('../assets/images/gliwice.png'),
     'home.png': require('../assets/images/home.png'),
@@ -16,9 +17,13 @@ export default function CheckPoint (prop) {
       right={props => (
         <IconButton
           size={24}
-          icon={(snackBarVisible && 'map-marker-off') || 'map-marker-check'}
+          icon='map-marker-check'
+          // icon={(snackBarVisible && 'map-marker-off') || 'map-marker-check'}
           onPress={() => {
-            setSnackBarVisibility(!snackBarVisible)
+            dispatch({
+              type: 'checkIn',
+              id: prop.id
+            })
           }}
         />
       )}
