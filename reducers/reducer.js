@@ -15,9 +15,10 @@ const reducer = (state, action) => {
       return {
         ...state
       }
-    case 'checkOut':
+    case 'refresh':
       return {
-        ...state
+        ...state,
+        isRefreshing: action.isRefreshing
       }
     default:
       return state

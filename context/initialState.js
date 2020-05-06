@@ -6,9 +6,9 @@ export default {
   isRegistered: false,
   location: '',
   currentState: { id: '', name: '', checked: false },
-  nearList: [
-    Checkpoints.home
-  ],
+  loading: false, // user list loading
+  isRefreshing: false, // for pull to refresh
+  nearList: [Checkpoints.home, Checkpoints.gliwice],
   allList: [
     Checkpoints.home,
     Checkpoints.gliwice,

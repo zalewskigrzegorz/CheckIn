@@ -44,7 +44,8 @@ export default function BottomTabNavigator () {
         dispatch({
           type: 'switchTab',
           newTabIndex: tab
-        })}
+        })
+      }
       renderScene={_renderScene}
     />
   )
