@@ -7114,10 +7114,10 @@ react-native-screens@~2.2.0:
   dependencies:
     debounce "^1.2.0"
 
-react-native-swipe-item@^0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/react-native-swipe-item/-/react-native-swipe-item-0.4.0.tgz#228c346d4f63c213d7849c5faf7fc262d6290c96"
-  integrity sha512-peCdR26NCES/ZBLiHBcpUxz53uzolOs6KmnsG6MKoujZtG36qDmwyUWZSUM5l4vd7/kUpQK2GwL/9uHiLeRVXw==
+react-native-swipeable-flat-list@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/react-native-swipeable-flat-list/-/react-native-swipeable-flat-list-0.1.2.tgz#11c419c3919bdff581479186b959ef47bad0d959"
+  integrity sha512-AmxHZgRNhz73ITlulMv84Z27DmNgZKaYQQrlTs8Zi4O8/GKtXL1SPkJ/I6LA62MDwOPQDmWdZ/I87F2XIrTM2g==
 
 react-native-view-shot@3.1.2:
   version "3.1.2"
